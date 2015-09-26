@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8150" systemVersion="15A204g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeueLights.ttc">
+            <string>HelveticaNeue-Thin</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -15,8 +21,51 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nearMeLogo" translatesAutoresizingMaskIntoConstraints="NO" id="sHT-rx-sjf">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="0S1-4n-x6G"/>
+                                    <constraint firstAttribute="width" constant="300" id="q2k-f9-blR"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Near" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tNL-Ew-ecG">
+                                <rect key="frame" x="210.5" y="77" width="109" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="vOx-zW-bNo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="55"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="vOx-zW-bNo"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsH-Q5-Z9s">
+                                <rect key="frame" x="313.5" y="77.5" width="77.5" height="64.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="55"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sHT-rx-sjf" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Uz7-zN-Bhq"/>
+                            <constraint firstItem="tNL-Ew-ecG" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-35" id="X1x-xp-2qH"/>
+                            <constraint firstItem="sHT-rx-sjf" firstAttribute="top" secondItem="tNL-Ew-ecG" secondAttribute="bottom" constant="8" id="fXe-XW-klN"/>
+                            <constraint firstItem="sHT-rx-sjf" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="l9y-r9-w4E"/>
+                            <constraint firstItem="HsH-Q5-Z9s" firstAttribute="leading" secondItem="tNL-Ew-ecG" secondAttribute="trailing" constant="-6" id="lTb-5b-jeM"/>
+                            <constraint firstItem="tNL-Ew-ecG" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="212" id="lWJ-Tq-Apw"/>
+                            <constraint firstItem="sHT-rx-sjf" firstAttribute="top" secondItem="HsH-Q5-Z9s" secondAttribute="bottom" constant="8" id="wex-Dk-q1j"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="lWJ-Tq-Apw"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +73,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nearMeLogo" width="225" height="225"/>
+    </resources>
 </document>
