@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="DetailsTableViewCell" id="iN0-l3-epB" customClass="DetailsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lps-4K-loV">
+                    <rect key="frame" x="0.0" y="75" width="200" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="lps-4K-loV" secondAttribute="height" multiplier="200:159" id="aV6-f5-Uun"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="aV6-f5-Uun"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDO-tC-STD">
+                    <rect key="frame" x="8" y="8" width="142" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="phoneLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1B-qB-ZEk">
+                    <rect key="frame" x="8" y="36" width="142" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="mobileLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lh6-37-VyL">
+                    <rect key="frame" x="8" y="262" width="142" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="addressLabel" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sP-U5-LlW">
+                    <rect key="frame" x="8" y="233" width="184" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="FDO-tC-STD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="0td-qd-iAK"/>
+                <constraint firstItem="FDO-tC-STD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="1Zi-Uq-fMd"/>
+                <constraint firstAttribute="bottom" secondItem="lps-4K-loV" secondAttribute="bottom" constant="75" id="6FK-HP-aA1"/>
+                <constraint firstItem="lps-4K-loV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7lu-vy-6q6"/>
+                <constraint firstAttribute="trailing" secondItem="Lh6-37-VyL" secondAttribute="trailing" constant="50" id="8E3-aR-Kjm"/>
+                <constraint firstItem="6sP-U5-LlW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="8WH-BQ-HQc"/>
+                <constraint firstAttribute="trailing" secondItem="6sP-U5-LlW" secondAttribute="trailing" constant="8" id="9nJ-bD-mwv"/>
+                <constraint firstAttribute="bottom" secondItem="Lh6-37-VyL" secondAttribute="bottom" constant="17" id="Lkm-n5-Ryu"/>
+                <constraint firstAttribute="trailing" secondItem="lps-4K-loV" secondAttribute="trailing" id="Yri-gL-24S"/>
+                <constraint firstItem="N1B-qB-ZEk" firstAttribute="top" secondItem="FDO-tC-STD" secondAttribute="bottom" constant="8.5" id="b25-VC-zsl"/>
+                <constraint firstAttribute="bottom" secondItem="lps-4K-loV" secondAttribute="bottom" constant="70" id="cwn-Da-MW9"/>
+                <constraint firstItem="Lh6-37-VyL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="gVE-8t-Gad"/>
+                <constraint firstItem="lps-4K-loV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="71" id="gyb-ks-bTN"/>
+                <constraint firstItem="Lh6-37-VyL" firstAttribute="top" secondItem="6sP-U5-LlW" secondAttribute="bottom" constant="8" id="h1p-0o-fgi"/>
+                <constraint firstAttribute="trailing" secondItem="lps-4K-loV" secondAttribute="trailing" id="oWa-Yj-2rl"/>
+                <constraint firstItem="Lh6-37-VyL" firstAttribute="top" secondItem="6sP-U5-LlW" secondAttribute="bottom" constant="8" id="s4w-B0-4bh"/>
+                <constraint firstAttribute="trailing" secondItem="N1B-qB-ZEk" secondAttribute="trailing" constant="50" id="sNE-zW-I9y"/>
+                <constraint firstItem="lps-4K-loV" firstAttribute="top" secondItem="N1B-qB-ZEk" secondAttribute="bottom" constant="17" id="shO-S3-4ul"/>
+                <constraint firstItem="N1B-qB-ZEk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="uLz-Vb-8eT"/>
+                <constraint firstItem="N1B-qB-ZEk" firstAttribute="top" secondItem="FDO-tC-STD" secondAttribute="bottom" constant="8" id="uP3-lJ-9TI"/>
+                <constraint firstAttribute="trailing" secondItem="FDO-tC-STD" secondAttribute="trailing" constant="50" id="wIR-Rm-hQP"/>
+                <constraint firstItem="lps-4K-loV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xe0-9P-gQu"/>
+                <constraint firstItem="6sP-U5-LlW" firstAttribute="top" secondItem="lps-4K-loV" secondAttribute="bottom" constant="8" id="yuZ-vZ-cgR"/>
+                <constraint firstItem="lps-4K-loV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="75" id="ywH-R3-Toe"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="b25-VC-zsl"/>
+                    <exclude reference="7lu-vy-6q6"/>
+                    <exclude reference="Yri-gL-24S"/>
+                    <exclude reference="cwn-Da-MW9"/>
+                    <exclude reference="gyb-ks-bTN"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="InstagramImageView" destination="lps-4K-loV" id="qId-Zl-4lS"/>
+                <outlet property="addressLabel" destination="6sP-U5-LlW" id="gqf-6T-7r7"/>
+                <outlet property="mobileLabel" destination="Lh6-37-VyL" id="Pgk-OH-AH2"/>
+                <outlet property="nameLabel" destination="FDO-tC-STD" id="cZw-17-qQE"/>
+            </connections>
+            <point key="canvasLocation" x="136" y="23"/>
+        </view>
+    </objects>
+</document>

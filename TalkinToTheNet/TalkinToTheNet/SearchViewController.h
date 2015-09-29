@@ -13,12 +13,12 @@
 
 @interface SearchViewController : UIViewController
 <
-MKMapViewDelegate,
 UITextFieldDelegate,
-CLLocationManagerDelegate
+UITableViewDataSource,
+UITableViewDelegate
 >
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSMutableArray *searchResults;
-@property (nonatomic) CLLocationManager *locationManager;
 
 @end

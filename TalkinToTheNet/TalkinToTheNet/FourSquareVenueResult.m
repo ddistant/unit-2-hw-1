@@ -7,20 +7,16 @@
 //
 
 #import "FourSquareVenueResult.h"
-#import "SearchViewController.h"
 
 @implementation FourSquareVenueResult
 
 -(instancetype)initWithJSON:(NSDictionary *)json {
-    
-    
+
     //you always need this to overwrite an initializer
     
     if (self = [super init]) {
-      
         return self;
     }
-    
     return nil;
 }
 
