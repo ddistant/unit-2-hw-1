@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+
 @interface MapViewController : UIViewController
 
 <
@@ -23,6 +24,7 @@ CLLocationManagerDelegate
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *locatorMapView;
 @property (nonatomic) CLLocationManager *locationManager;
+@property (nonatomic) NSMutableDictionary *venueResultInfo;
 
 
 

@@ -33,14 +33,26 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    MapViewController *viewController = [segue destinationViewController];
-    FourSquareVenueResult *venueResult = [[FourSquareVenueResult alloc] init];
-    
-//    NSString *name = 
-    
-    
-    
+    if ([segue.identifier isEqualToString:@"MapSegue"]) {
+        
+        MapViewController *viewController = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        FourSquareVenueResult *currentResult = [self.searchResults objectAtIndex:indexPath.row];
+        NSMutableDictionary *currentDictionary = [[NSMutableDictionary alloc] init];
+        [currentDictionary setObject:currentResult.name forKey:@"name"];
+        [currentDictionary setObject:currentResult.address forKey:@"address"];
+        
+        if (currentResult.phoneNumber == nil) {
+            [currentDictionary setObject:@"n/a" forKey:@"phoneNumber"];
+        } else {
+            [currentDictionary setObject:currentResult.phoneNumber forKey:@"phoneNumber"];
+        }
+        
+        [currentDictionary setObject: [NSString stringWithFormat:@"%@", currentResult.mobileURL]  forKey:@"mobileURL"];
+        viewController.venueResultInfo = [[NSMutableDictionary alloc] init];
+        [viewController.venueResultInfo addEntriesFromDictionary:currentDictionary];
+        
+    }
 }
 
 -(void) setup {
@@ -60,7 +72,7 @@
 
     //UI
     
-    self.navigationItem.title = @"NearMe";
+    self.navigationItem.title = @"Search";
     
     
     self.searchTextField.layer.borderWidth = 3.0;
@@ -91,26 +103,27 @@
     
     [APIManager GETRequestWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        
-        NSArray *results = json[@"response"][@"groups"][0][@"items"];
-        
-        for (NSDictionary *result in results) {
+        if (data != nil) {
             
-            FourSquareVenueResult *venueResult = [[FourSquareVenueResult alloc] initWithJSON:result];
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
-            venueResult.name = result[@"venue"][@"name"];
-            venueResult.phoneNumber = result[@"venue"][@"contact"][@"formattedPhone"];
-            venueResult.address = result[@"venue"][@"location"][@"formattedAddress"];
-            venueResult.distance = result[@"venue"][@"location"][@"distance"];
-            venueResult.mobileURL = result[@"venue"][@"menu"][@"mobileUrl"];
-            venueResult.latitude = result[@"venue"][@"location"][@"lat"];
-            venueResult.latitude = result[@"venue"][@"location"][@"lng"];
+            NSArray *results = json[@"response"][@"groups"][0][@"items"];
             
-            [self.searchResults addObject:venueResult];
-            
-//            NSLog(@"%@\n %@\n %@\n %@\n %@\n %@\n %@\n", venueResult.name, venueResult.phoneNumber, venueResult.address, venueResult.distance, venueResult.mobileURL, venueResult.latitude, venueResult.longitude);
-            
+            for (NSDictionary *result in results) {
+                
+                FourSquareVenueResult *venueResult = [[FourSquareVenueResult alloc] initWithJSON:result];
+                
+                venueResult.name = result[@"venue"][@"name"];
+                venueResult.phoneNumber = result[@"venue"][@"contact"][@"formattedPhone"];
+                venueResult.address = result[@"venue"][@"location"][@"formattedAddress"];
+                venueResult.distance = result[@"venue"][@"location"][@"distance"];
+                venueResult.mobileURL = result[@"venue"][@"menu"][@"mobileUrl"];
+                venueResult.latitude = result[@"venue"][@"location"][@"lat"];
+                venueResult.latitude = result[@"venue"][@"location"][@"lng"];
+                
+                [self.searchResults addObject:venueResult];
+                
+            }
         }
         
         if (self.searchResults.count == 0) {

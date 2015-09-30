@@ -10,9 +10,7 @@
 
 @interface DetailsTableViewController : UITableViewController
 
-@property (nonatomic) NSMutableArray *searchResultsTV;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *InstagramImageView;
+@property (nonatomic) NSString *searchTerm;
+@property (nonatomic) NSMutableArray *searchResults;
 
 @end
