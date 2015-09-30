@@ -46,6 +46,7 @@
     }
     
 //    MKUserLocation *userLocation = self.locatorMapView.userLocation;
+//    NSLog(@"commit message");
     CLLocationCoordinate2D center = CLLocationCoordinate2DMake(40.7,-74);
     
     MKCoordinateSpan span = MKCoordinateSpanMake(0.5, 0.5);
