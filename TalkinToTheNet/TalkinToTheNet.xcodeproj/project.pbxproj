@@ -10,6 +10,8 @@
 		228221721BB8AC4A008900C2 /* DetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228221711BB8AC4A008900C2 /* DetailsTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		228221751BBAC25C008900C2 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228221741BBAC25C008900C2 /* MapViewController.m */; settings = {ASSET_TAGS = (); }; };
 		228221781BBB41A6008900C2 /* InstagramPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 228221771BBB41A6008900C2 /* InstagramPost.m */; settings = {ASSET_TAGS = (); }; };
+		22D3D28D1BBF3E7D00E4B1A2 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D3D28C1BBF3E7D00E4B1A2 /* WebViewController.m */; settings = {ASSET_TAGS = (); }; };
+		22D3D28F1BBF5BDF00E4B1A2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22D3D28E1BBF5BDF00E4B1A2 /* WebKit.framework */; };
 		22DE3DF11BB0379D00153600 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DE3DF01BB0379D00153600 /* APIManager.m */; settings = {ASSET_TAGS = (); }; };
 		22DE3DF31BB041A200153600 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DE3DF21BB041A200153600 /* MapKit.framework */; };
 		22DE3DF51BB04E4300153600 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DE3DF41BB04E4300153600 /* CoreLocation.framework */; };
@@ -30,6 +32,9 @@
 		228221741BBAC25C008900C2 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		228221761BBB41A6008900C2 /* InstagramPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramPost.h; sourceTree = "<group>"; };
 		228221771BBB41A6008900C2 /* InstagramPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramPost.m; sourceTree = "<group>"; };
+		22D3D28B1BBF3E7D00E4B1A2 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		22D3D28C1BBF3E7D00E4B1A2 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		22D3D28E1BBF5BDF00E4B1A2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		22DE3DEF1BB0379D00153600 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		22DE3DF01BB0379D00153600 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		22DE3DF21BB041A200153600 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -57,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22D3D28F1BBF5BDF00E4B1A2 /* WebKit.framework in Frameworks */,
 				22DE3DF51BB04E4300153600 /* CoreLocation.framework in Frameworks */,
 				22DE3DF31BB041A200153600 /* MapKit.framework in Frameworks */,
 			);
@@ -68,6 +74,7 @@
 		8D7DCD3D1BAF859400A92AD2 = {
 			isa = PBXGroup;
 			children = (
+				22D3D28E1BBF5BDF00E4B1A2 /* WebKit.framework */,
 				22DE3DF41BB04E4300153600 /* CoreLocation.framework */,
 				22DE3DF21BB041A200153600 /* MapKit.framework */,
 				8D7DCD481BAF859400A92AD2 /* TalkinToTheNet */,
@@ -98,6 +105,8 @@
 				22DE3E311BB581E800153600 /* FourSquareVenueResult.m */,
 				22DE3E281BB4EA9B00153600 /* DetailsTableViewController.h */,
 				22DE3E291BB4EA9B00153600 /* DetailsTableViewController.m */,
+				22D3D28B1BBF3E7D00E4B1A2 /* WebViewController.h */,
+				22D3D28C1BBF3E7D00E4B1A2 /* WebViewController.m */,
 				228221761BBB41A6008900C2 /* InstagramPost.h */,
 				228221771BBB41A6008900C2 /* InstagramPost.m */,
 				22DE3E2B1BB4EAD900153600 /* DetailsTableViewCell.h */,
@@ -193,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22DE3E2D1BB4EAD900153600 /* DetailsTableViewCell.m in Sources */,
+				22D3D28D1BBF3E7D00E4B1A2 /* WebViewController.m in Sources */,
 				22DE3DF11BB0379D00153600 /* APIManager.m in Sources */,
 				22DE3E2A1BB4EA9B00153600 /* DetailsTableViewController.m in Sources */,
 				228221751BBAC25C008900C2 /* MapViewController.m in Sources */,

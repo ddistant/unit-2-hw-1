@@ -8,6 +8,7 @@
 
 #import "MapViewController.h"
 #import "DetailsTableViewController.h"
+#import "WebViewController.h"
 
 @interface MapViewController ()
 
@@ -20,35 +21,36 @@
     
     [self setup];
     [self setLabels];
+    [self updateMap];
 
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    DetailsTableViewController *viewController = [segue destinationViewController];
-    if (self.venueResultInfo[@"name"] != nil) {
-        viewController.searchTerm = self.venueResultInfo[@"name"];
+    
+    if ([segue.identifier isEqualToString:@"photoSegue"]) {
+        
+        DetailsTableViewController *viewController = [segue destinationViewController];
+        if (self.venueResultInfo[@"name"] != nil) {
+            viewController.searchTerm = self.venueResultInfo[@"name"];
+        }
+    }
+    
+    if ([segue.identifier isEqualToString:@"webSegue"]) {
+       
+        WebViewController *viewController = [segue destinationViewController];
+        viewController.url = [NSURL URLWithString:[self.venueResultInfo objectForKey: @"mobileURL"]];
+        
     }
 }
-
 -(void) setup {
     
     self.navigationItem.title = @"Location";
     
-    //mapview and locationManager
-    
-    self.locationManager = [[CLLocationManager alloc] init];
+    //mapview
     
     self.locatorMapView.delegate = self;
-    self.locationManager.delegate = self;
-    
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    
-//    MKUserLocation *userLocation = self.locatorMapView.userLocation;
-//    NSLog(@"commit message");
-    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(40.7,-74);
-    
+
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake(self.userLatitude,self.userLongitude);
     MKCoordinateSpan span = MKCoordinateSpanMake(0.5, 0.5);
     
     [self.locatorMapView setRegion:MKCoordinateRegionMake(center, span) animated:YES];
@@ -56,6 +58,10 @@
     self.locatorMapView.layer.borderWidth = 2.0;
     self.locatorMapView.layer.borderColor = [UIColor colorWithRed:40/255.0 green:80/255.0 blue:131/255.0 alpha:1].CGColor;
     self.locatorMapView.layer.cornerRadius = 10.0;
+    
+    //mobileButton
+    
+    self.mobileButton.titleLabel.textAlignment = NSTextAlignmentLeft;
     
 }
 
@@ -69,10 +75,11 @@
     }
     
     if (self.venueResultInfo[@"mobileURL"] == nil) {
-        self.mobileLabel.text = @"n/a";
+        self.mobileButton.hidden = YES;
     } else {
         
-        self.mobileLabel.text = [self.venueResultInfo objectForKey: @"mobileURL"];
+        [self.mobileButton setTitle:@"Website" forState:UIControlStateNormal];
+        
     }
     
     if (self.venueResultInfo[@"address"] == nil) {
@@ -88,6 +95,29 @@
         
         self.phoneNumberLabel.text = [self.venueResultInfo objectForKey: @"phoneNumber"];
     }
+    
+}
+
+-(void) addAnnotationForVenue {
+    
+    MKPointAnnotation *mapPin = [[MKPointAnnotation alloc] init];
+    
+    double lat = [self.venueResultInfo[@"latitude"] doubleValue];
+    double lng = [self.venueResultInfo[@"longitude"] doubleValue];
+    
+    CLLocationCoordinate2D venueLocation = CLLocationCoordinate2DMake(lat, lng);
+    
+    mapPin.coordinate = venueLocation;
+    mapPin.title = self.venueResultInfo[@"name"];
+    
+    [self.locatorMapView addAnnotation:mapPin];
+}
+
+-(void) updateMap {
+    [self.locatorMapView removeAnnotations:self.locatorMapView.annotations];
+
+    [self addAnnotationForVenue];
+    
 }
 
 @end

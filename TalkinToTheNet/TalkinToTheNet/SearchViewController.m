@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UILabel *searchLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *searchLabel2;
+@property (nonatomic) CLLocationManager *locationManager;
 
 
 @end
@@ -41,6 +42,8 @@
         NSMutableDictionary *currentDictionary = [[NSMutableDictionary alloc] init];
         [currentDictionary setObject:currentResult.name forKey:@"name"];
         [currentDictionary setObject:currentResult.address forKey:@"address"];
+        [currentDictionary setObject:currentResult.latitude forKey:@"latitude"];
+        [currentDictionary setObject:currentResult.longitude forKey:@"longitude"];
         
         if (currentResult.phoneNumber == nil) {
             [currentDictionary setObject:@"n/a" forKey:@"phoneNumber"];
@@ -51,6 +54,11 @@
         [currentDictionary setObject: [NSString stringWithFormat:@"%@", currentResult.mobileURL]  forKey:@"mobileURL"];
         viewController.venueResultInfo = [[NSMutableDictionary alloc] init];
         [viewController.venueResultInfo addEntriesFromDictionary:currentDictionary];
+        
+        //user location
+        
+        viewController.userLatitude = self.locationManager.location.coordinate.latitude;
+        viewController.userLongitude = self.locationManager.location.coordinate.longitude;
         
     }
 }
@@ -85,6 +93,17 @@
     
     self.searchLabel1.textColor = [UIColor colorWithRed:249/255.0 green:72/255.0 blue:119/255.0 alpha:1];
     self.searchLabel2.textColor = [UIColor colorWithRed:249/255.0 green:72/255.0 blue:119/255.0 alpha:1];
+    
+    //locationManager
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    
+    self.locationManager.delegate = self;
+    
+    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.locationManager requestWhenInUseAuthorization];
+        [self.locationManager startUpdatingLocation];
+    }
 }
 
 
@@ -95,7 +114,7 @@
         [self.searchResults removeAllObjects];
     }
     
-    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?client_id=4BVIIF5WI4YYPWT0O1MANDN4QJ1GLCHDCESZZZP1RHJIR0DQ&client_secret=QHR4C1IDZSWUFTD3DOO2TOJ05IXO1D1SMK4IGEOC3AKRB1FN&v=20140806&ll=40.7577,-73.9857&query=%@", self.searchTextField.text];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/explore?client_id=4BVIIF5WI4YYPWT0O1MANDN4QJ1GLCHDCESZZZP1RHJIR0DQ&client_secret=QHR4C1IDZSWUFTD3DOO2TOJ05IXO1D1SMK4IGEOC3AKRB1FN&v=20140806&ll=%f,%f&query=%@", self.locationManager.location.coordinate.latitude, self.locationManager.location.coordinate.longitude, self.searchTextField.text];
     
     NSString *encodedString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
     
@@ -119,7 +138,7 @@
                 venueResult.distance = result[@"venue"][@"location"][@"distance"];
                 venueResult.mobileURL = result[@"venue"][@"menu"][@"mobileUrl"];
                 venueResult.latitude = result[@"venue"][@"location"][@"lat"];
-                venueResult.latitude = result[@"venue"][@"location"][@"lng"];
+                venueResult.longitude = result[@"venue"][@"location"][@"lng"];
                 
                 [self.searchResults addObject:venueResult];
                 

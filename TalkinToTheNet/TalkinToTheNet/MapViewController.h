@@ -11,19 +11,15 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface MapViewController : UIViewController
-
-<
-MKMapViewDelegate,
-CLLocationManagerDelegate
->
+@interface MapViewController : UIViewController <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mobileLabel;
+@property (weak, nonatomic) IBOutlet UIButton *mobileButton;
 @property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (nonatomic) double userLatitude; //user location
+@property (nonatomic) double userLongitude; //user location
 @property (weak, nonatomic) IBOutlet MKMapView *locatorMapView;
-@property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) NSMutableDictionary *venueResultInfo;
 
 

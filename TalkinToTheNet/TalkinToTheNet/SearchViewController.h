@@ -11,11 +11,13 @@
 #import <MapKit/MapKit.h>
 #import "APIManager.h"
 
+
 @interface SearchViewController : UIViewController
 <
 UITextFieldDelegate,
 UITableViewDataSource,
-UITableViewDelegate
+UITableViewDelegate,
+CLLocationManagerDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
